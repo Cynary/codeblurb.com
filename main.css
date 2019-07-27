@@ -1,0 +1,120 @@
+:root
+{
+    --text-color-light: black;
+    --back-color-light: white;
+    --back-color-transparent-light: rgba(255, 255, 255, 0.9);
+
+    --text-color-dark: white;
+    --back-color-dark: rgb(50, 50, 50);
+    --back-color-transparent-dark: rgba(50,50,50,.9);
+
+    /* Make sure to reflect extra colors in theme.js and below. */
+    --theme: light;
+    --text-color: var(--text-color-light);
+    --back-color: var(--back-color-light);
+    --back-color-transparent: var(--back-color-transparent-light);
+
+    --top-bar-height: 41px;
+
+    /*
+     * Burger properties - these are modified by JS to have a distinct working style with and
+     * without jS.  The default doesn't have a clickable burger.
+     */
+    --burger-js-visible: hidden;
+    --burger-js-toggle: 0;
+    --burger-visible: initial;
+    --burger-toggle: 0;
+}
+
+@media (prefers-color-scheme: dark)
+{
+    :root
+    {
+        --theme: dark;
+        --text-color: var(--text-color-dark);
+        --back-color: var(--back-color-dark);
+        --back-color-transparent: var(--back-color-transparent-dark);
+    }
+}
+
+html
+{
+    height: 100%;
+
+    /*
+     * TODO:
+     *
+     *  Check browser compatibility and releases for the following properties:
+     *
+     *  scrollbar-width https://css-tricks.com/almanac/properties/s/scrollbar-width/
+     *  scrollbar-color https://css-tricks.com/almanac/properties/s/scrollbar-color/
+     *  scrollbar-gutter https://css-tricks.com/almanac/properties/s/scrollbar-gutter/
+     */
+}
+
+/* html::-webkit-scrollbar */
+/* { */
+/*     width: 10px; */
+/* } */
+body::-webkit-scrollbar {
+    width: 0.2em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.top-bar .content::-webkit-scrollbar {
+    width: 0.2em;
+}
+
+.top-bar .content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.top-bar .content::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+body
+{
+    background-color: var(--back-color);
+    margin: 0 auto;
+    color: var(--text-color);
+    font-size: 20px;
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.content-placeholder
+{
+    display: inline-block;
+    width: 100%;
+    height: 200%;
+}
+
+footer
+{
+    padding: 0;
+    margin: 10px 5px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 12px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    cursor: default;
+}
+
+#theme-symbol
+{
+    text-align: center;
+}

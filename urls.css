@@ -1,0 +1,43 @@
+/* This stylesheet includes all the styling for HTML anchors. */
+
+a.linkedin:link,
+a.linkedin:visited
+{
+    color: #4875B4;
+}
+
+a.github:link,
+a.github:visited
+{
+    color: #767676;
+}
+
+a.current:link,
+a.current:visited
+{
+    color: #fc6d24;
+}
+
+a:link,
+a:visited
+{
+    color: var(--text-color);
+}
+
+a:hover,
+a:active,
+a.current:hover,
+a.current:active,
+a.linkedin:hover,
+a.linkedin:active,
+a.github:hover,
+a.github:active
+{
+    color: #a1c659;
+}
+
+a
+{
+    text-decoration: none;
+    transition: color .1s ease;
+}

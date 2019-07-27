@@ -1,0 +1,61 @@
+/*
+ * This stylesheet contains the styles for blurbs.  These styles are the same as in the blurbs list
+ * page.
+ */
+
+/* TODO: images */
+
+.body
+{
+    width: 90%;
+    margin: 0px auto;
+    text-rendering: optimizeLegibility;
+
+    flex: 1 0 auto;
+}
+
+.body code
+{
+    color: rgb(200, 200, 200, 200);
+    white-space: pre;
+
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: 400;
+    margin: 10px 10px;
+    background-color: rgba(25, 25, 25, 0.9);
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+
+    overflow-x: hidden;
+}
+
+.body hr
+{
+    margin: 30px 30px;
+    border-color: rgb(100, 100, 100);
+}
+
+.boody h1
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 40px;
+    line-height: 42px;
+    font-weight: 600;
+}
+
+.body h2
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 30px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.body p
+{
+    margin: 2em 0.5em;
+    line-height: 1.5em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
