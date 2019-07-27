@@ -86,3 +86,8 @@ var common = {
 }
 
 window.onload = common.onload;
+
+// Blatant ripoff from jquery, but I like this syntactic sugar.
+//
+$ = document.querySelector.bind(document);
+$$ = document.querySelectorAll.bind(document);

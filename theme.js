@@ -36,7 +36,7 @@ var ThemeNS = {
         var nextTheme = ThemeNS.themes[theme].next;
         var themeDesc = ThemeNS.themes[nextTheme];
 
-        var elm = document.getElementById("theme-symbol");
+        var elm = $("#theme-symbol");
         elm.innerHTML = themeDesc.icon;
         elm.onclick = function() { ThemeNS.SetThemeAndSymbol(nextTheme); };
     },
