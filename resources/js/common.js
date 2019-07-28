@@ -76,7 +76,13 @@ var common = {
             console.log("Unable to write to localStorage: '" + err + "'. Continuing without stored state.");
             return false;
         }
-    }
+    },
+
+    enableJSForCSS: function()
+    {
+        var elemStyle = document.documentElement.style;
+        elemStyle.setProperty("--js-visible", "initial");
+    },
 
     // getCookies: function()
     // {
@@ -118,9 +124,10 @@ var common = {
     // },
 
 
-}
+};
 
 common.setupOnloadObserver();
+common.enableJSForCSS();
 
 // Blatant ripoff from jquery, but I like this syntactic sugar.
 //

@@ -15,8 +15,10 @@ var ThemeNS = {
     themeProperties: [
         "--text-color",
         "--back-color",
+        "--color-2",
+        "--color-3",
         "--back-color-transparent",
-        "--color-2"],
+        "--color-transparent-2"],
 
     GetCurrentTheme: function()
     {

@@ -95,17 +95,19 @@
     .top-bar
     {
         flex-shrink: 0;
-        position: var(--burger-js-sticky);
+        position: sticky;
         top: 0px;
         min-height: var(--top-bar-height);
         background-color: var(--back-color-transparent);
+
+        --burger-visible: hidden;
+        --burger-toggle: 0;
     }
 
     .top-bar .burger
     {
         width: 4em;
         height: calc(var(--top-bar-height) - 14px);
-        cursor: pointer;
 
         padding-top: 7px;
         padding-bottom: 7px;
@@ -114,13 +116,32 @@
         flex-flow: column nowrap;
         justify-content: space-evenly;
         align-items: center;
-        visibility: var(--burger-js-visible);
+    }
+
+    label[for="burger-button"]
+    {
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        top: 0px;
+
+        padding-top: 7px;
+        padding-bottom: 7px;
+        width: 4em;
+        height: calc(var(--top-bar-height) - 14px);
+
+        z-index: 1;
+    }
+
+    #burger-button:checked ~ .top-bar
+    {
+        --burger-visible: initial;
+        --burger-toggle: 1;
     }
 
     .top-bar .burger .top-dash
     {
-        transition: transform .2s ease-in-out;
-        /* transform: translateY(calc(var(--burger-toggle) * 7px)); */
+        transition: transform var(--burger-transition-time) ease-out;
         transform: translateY(calc(var(--burger-toggle) * 7px)) rotate(calc(var(--burger-toggle) * 30deg));
         width: 1.5em;
         height: 2px;
@@ -129,7 +150,7 @@
 
     .top-bar .burger .middle-dash
     {
-        transition: opacity .2s ease-in-out;
+        transition: opacity var(--burger-transition-time) ease-out;
         opacity: calc(1 - var(--burger-toggle));
         width: 1.5em;
         height: 2px;
@@ -138,9 +159,8 @@
 
     .top-bar .burger .bottom-dash
     {
-        transition: transform .2s ease-in-out;
+        transition: transform var(--burger-transition-time) ease-out;
         transform: translateY(calc(var(--burger-toggle) * -8px)) rotate(calc(var(--burger-toggle) * -30deg));
-        /* transform: translateY(calc(var(--burger-toggle) * -7px)); */
         width: 1.5em;
         height: 2px;
         background-color: var(--text-color);
@@ -148,19 +168,19 @@
 
     .top-bar .content-container
     {
-        position: var(--burger-js-content-position);
+        position: fixed;
         left: 0;
         top: var(--top-bar-height);
-        transition: visibility .2s ease-in-out;
+        transition: visibility var(--burger-transition-time) ease-out;
         visibility: var(--burger-visible);
         width: 100%;
     }
 
     .top-bar .content
     {
-        transition: left .2s ease-in-out;
+        transition: left var(--burger-transition-time) ease-out;
         position: relative;
-        left: calc(var(--burger-js-toggle) * (var(--burger-toggle) - 1) * 100%);
+        left: calc((var(--burger-toggle) - 1) * 100%);
         overflow-x: hidden;
         font-weight: bold;
         font-size: 18px;
@@ -172,13 +192,13 @@
         align-items: center;
 
         background-color: var(--back-color-transparent);
-        height: var(--burger-js-content-height);
+        height: calc(100vh - var(--top-bar-height));
         overflow-y: auto;
     }
 
     .top-bar .content a
     {
-        margin: calc(10px + var(--burger-js-toggle) * 10px) 30px;
+        margin: 20px 30px;
     }
 
     .top-bar .content .bar
@@ -192,7 +212,7 @@
     header
     {
         margin-bottom: 0px;
-        position: var(--burger-js-header-position);
+        position: fixed;
         top: 0px;
         left: 4em;
 
@@ -223,5 +243,10 @@
  */
 .top-bar .content .js-bar
 {
-    visibility: var(--burger-js-visible);
+    visibility: var(--js-visible);
+}
+
+#burger-button
+{
+    display: none;
 }

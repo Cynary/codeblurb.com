@@ -18,8 +18,11 @@
 
   <body>
 
+    <!-- Need autocomplete off here in order to avoid browser memorizing last checked value, leaving the burger displayed on reload. -->
+    <input type="checkbox" id="burger-button" autocomplete="off"></input>
+    <label for="burger-button"></label>
     <div class="top-bar">
-      <div class="burger" onclick="BurgerNS.ToggleBurger('top-bar')">
+      <div class="burger">
         <span class="top-dash"></span>
         <span class="middle-dash"></span>
         <span class="bottom-dash"></span>
