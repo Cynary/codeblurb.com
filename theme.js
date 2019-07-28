@@ -25,7 +25,7 @@ var ThemeNS = {
         return currentTheme;
     },
 
-    SetupThemeSymbol: function(theme)
+    SetupThemeSymbol: function(theme, elm)
     {
         common.assert(theme in ThemeNS.themes || theme == undefined, "Theme '" + theme + "' is not defined");
         if(theme == undefined)
@@ -36,7 +36,11 @@ var ThemeNS = {
         var nextTheme = ThemeNS.themes[theme].next;
         var themeDesc = ThemeNS.themes[nextTheme];
 
-        var elm = $("#theme-symbol");
+        if(elm == undefined)
+        {
+            elm = $("#theme-symbol");
+        }
+
         elm.innerHTML = themeDesc.icon;
         elm.onclick = function() { ThemeNS.SetThemeAndSymbol(nextTheme); };
     },
@@ -75,9 +79,16 @@ var ThemeNS = {
             ThemeNS.SetTheme(storedTheme);
         }
     },
+
+
 };
 
-common.onloadFunctions.push(ThemeNS.SetupThemeSymbol);
+common.addOnloadHandler(
+    "#theme-symbol",
+    (elm) =>
+    {
+        return ThemeNS.SetupThemeSymbol(theme=undefined, elm);
+    });
 
 // Assumes the stylesheets are loaded prior to scripts.
 //
