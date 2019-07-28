@@ -12,7 +12,11 @@ var ThemeNS = {
     },
 
     themeNameProp: "--theme",
-    themeProperties: ["--text-color", "--back-color", "--back-color-transparent"],
+    themeProperties: [
+        "--text-color",
+        "--back-color",
+        "--back-color-transparent",
+        "--color-2"],
 
     GetCurrentTheme: function()
     {

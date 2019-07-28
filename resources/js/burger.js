@@ -33,14 +33,7 @@ var BurgerNS = {
         elemStyle.setProperty("--burger-js-content-height", "calc(100vh - var(--top-bar-height))")
         elemStyle.setProperty("--burger-visible", "hidden");
     },
-
-    LinkResetBurger: function(link)
-    {
-        link.onclick = () => { BurgerNS.SetBurger(0); return true; };
-    }
 };
 
 BurgerNS.ResetBurger();
-common.addOnloadHandler(
-    ".top-bar a[target=_self], .top-bar a:not([target]):not([href='javascript:void(0);'])",
-    BurgerNS.LinkResetBurger);
+window.addEventListener("beforeunload", () => { BurgerNS.SetBurger(0); });

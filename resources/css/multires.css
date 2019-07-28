@@ -52,12 +52,13 @@
     .top-bar .content .bar
     {
         width: 1px;
-        background-color: rgb(100, 100, 100); /*var(--text-color);*/
+        background-color: var(--color-3);
     }
 
     header
     {
-        margin-bottom: 60px;
+        width: 90%;
+        margin: 30px auto;
         cursor: default;
     }
 
@@ -102,9 +103,12 @@
 
     .top-bar .burger
     {
-        width: 2em;
-        height: var(--top-bar-height);
+        width: 4em;
+        height: calc(var(--top-bar-height) - 14px);
         cursor: pointer;
+
+        padding-top: 7px;
+        padding-bottom: 7px;
 
         display: flex;
         flex-flow: column nowrap;
@@ -116,7 +120,8 @@
     .top-bar .burger .top-dash
     {
         transition: transform .2s ease-in-out;
-        transform: translateY(calc(var(--burger-toggle) * 11px)) rotate(calc(var(--burger-toggle) * 45deg));
+        /* transform: translateY(calc(var(--burger-toggle) * 7px)); */
+        transform: translateY(calc(var(--burger-toggle) * 7px)) rotate(calc(var(--burger-toggle) * 30deg));
         width: 1.5em;
         height: 2px;
         background-color: var(--text-color);
@@ -134,7 +139,8 @@
     .top-bar .burger .bottom-dash
     {
         transition: transform .2s ease-in-out;
-        transform: translateY(calc(var(--burger-toggle) * -10px)) rotate(calc(var(--burger-toggle) * -45deg));
+        transform: translateY(calc(var(--burger-toggle) * -8px)) rotate(calc(var(--burger-toggle) * -30deg));
+        /* transform: translateY(calc(var(--burger-toggle) * -7px)); */
         width: 1.5em;
         height: 2px;
         background-color: var(--text-color);
@@ -180,7 +186,7 @@
         flex-shrink: 0;
         height: 1px;
         width: 90%;
-        background-color: rgb(100, 100, 100); /*var(--text-color);*/
+        background-color: var(--color-2);
     }
 
     header
@@ -188,7 +194,7 @@
         margin-bottom: 0px;
         position: var(--burger-js-header-position);
         top: 0px;
-        left: 2em;
+        left: 4em;
 
         cursor: default;
     }

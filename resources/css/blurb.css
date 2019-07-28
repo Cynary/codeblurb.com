@@ -35,8 +35,10 @@
 
 .body hr
 {
-    margin: 30px 30px;
-    border-color: rgb(100, 100, 100);
+    margin: 30px 0px;
+    border-color: var(--color-2);
+    border: 1px 1px;
+    height: 0px;
 }
 
 .boody h1
@@ -57,7 +59,38 @@
 
 .body p
 {
-    margin: 2em 0.5em;
+    margin: 2em 0em;
     line-height: 1.5em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.body ol,
+.body ul
+{
+    margin-right: 0em;
+    margin-left: 0em;
+    line-height: 1.5em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.body p+ol,
+.body p+ul
+{
+    margin-top: -1em;
+}
+
+.body ol+p,
+.body ul+p
+{
+    margin-top: 1em;
+}
+
+.body q
+{
+    font-style: italic;
+}
+
+.body p a
+{
+    text-decoration: underline;
 }
