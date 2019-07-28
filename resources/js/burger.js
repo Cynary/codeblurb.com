@@ -36,7 +36,6 @@ var BurgerNS = {
 
     LinkResetBurger: function(link)
     {
-        console.log(link);
         link.onclick = () => { BurgerNS.SetBurger(false); return true; };
     }
 };
