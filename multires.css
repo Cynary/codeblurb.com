@@ -92,16 +92,16 @@
     .top-bar
     {
         flex-shrink: 0;
-        position: sticky;
+        position: var(--burger-js-sticky);
         top: 0px;
-        height: var(--top-bar-height);
+        min-height: var(--top-bar-height);
         background-color: var(--back-color-transparent);
     }
 
     .top-bar .burger
     {
         width: 2em;
-        height: 100%;
+        height: var(--top-bar-height);
         cursor: pointer;
 
         display: flex;
@@ -140,7 +140,7 @@
 
     .top-bar .content-container
     {
-        position: fixed;
+        position: var(--burger-js-content-position);
         left: 0;
         top: var(--top-bar-height);
         transition: visibility .2s ease;
@@ -163,13 +163,14 @@
         align-items: center;
 
         background-color: var(--back-color-transparent);
-        height: calc(100vh - var(--top-bar-height));
+        height: var(--burger-js-content-height);
+        /* height: calc(100vh - var(--top-bar-height)); */
         overflow-y: auto;
     }
 
     .top-bar .content a
     {
-        margin: 20px 30px;
+        margin: calc(10px + var(--burger-js-toggle) * 10px) 30px;
     }
 
     .top-bar .content .bar
@@ -183,7 +184,7 @@
     header
     {
         margin-bottom: 0px;
-        position: fixed;
+        position: var(--burger-js-header-position);
         top: 0px;
         left: 2em;
 
@@ -206,4 +207,13 @@
     {
         display: none;
     }
+}
+
+/*
+ * This bar is used to separate out the javscript-controller actions, and should not show up when
+ * javascript isn't running.
+ */
+.top-bar .content .js-bar
+{
+    visibility: var(--burger-js-visible);
 }

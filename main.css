@@ -9,10 +9,10 @@
     --back-color-transparent-dark: rgba(50,50,50,.9);
 
     /* Make sure to reflect extra colors in theme.js and below. */
-    --theme: light;
-    --text-color: var(--text-color-light);
-    --back-color: var(--back-color-light);
-    --back-color-transparent: var(--back-color-transparent-light);
+    --theme: dark;
+    --text-color: var(--text-color-dark);
+    --back-color: var(--back-color-dark);
+    --back-color-transparent: var(--back-color-transparent-dark);
 
     --top-bar-height: 41px;
 
@@ -21,20 +21,13 @@
      * without jS.  The default doesn't have a clickable burger.
      */
     --burger-js-visible: hidden;
+    --burger-js-sticky: initial;
     --burger-js-toggle: 0;
+    --burger-js-header-position: absolute;
+    --burger-js-content-position: initial;
+    --burger-js-content-height: initial;
     --burger-visible: initial;
     --burger-toggle: 0;
-}
-
-@media (prefers-color-scheme: dark)
-{
-    :root
-    {
-        --theme: dark;
-        --text-color: var(--text-color-dark);
-        --back-color: var(--back-color-dark);
-        --back-color-transparent: var(--back-color-transparent-dark);
-    }
 }
 
 html

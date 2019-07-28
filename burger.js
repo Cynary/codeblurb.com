@@ -27,8 +27,12 @@ var BurgerNS = {
     {
         var elemStyle = document.documentElement.style;
         elemStyle.setProperty("--burger-js-visible", "initial");
-        elemStyle.setProperty("--burger-visible", "hidden");
         elemStyle.setProperty("--burger-js-toggle", 1);
+        elemStyle.setProperty("--burger-js-sticky", "sticky");
+        elemStyle.setProperty("--burger-js-header-position", "fixed");
+        elemStyle.setProperty("--burger-js-content-position", "fixed");
+        elemStyle.setProperty("--burger-js-content-height", "calc(100vh - var(--top-bar-height))")
+        elemStyle.setProperty("--burger-visible", "hidden");
 
         var storedBurgerActive = common.getLocalState("BurgerNS::active");
         if(storedBurgerActive != null)
