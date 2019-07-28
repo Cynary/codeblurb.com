@@ -18,7 +18,6 @@ var BurgerNS = {
         var active = getComputedStyle(document.documentElement).getPropertyValue(BurgerNS.burgerToggleProp);
         var newActive = (active == 1) ? 0 : 1;
         BurgerNS.SetBurger(newActive);
-        common.setLocalState("BurgerNS::active", newActive);
     },
 
     // This function turns on the javascript burger, and resets it to its previous value.
@@ -33,13 +32,16 @@ var BurgerNS = {
         elemStyle.setProperty("--burger-js-content-position", "fixed");
         elemStyle.setProperty("--burger-js-content-height", "calc(100vh - var(--top-bar-height))")
         elemStyle.setProperty("--burger-visible", "hidden");
-
-        var storedBurgerActive = common.getLocalState("BurgerNS::active");
-        if(storedBurgerActive != null)
-        {
-            BurgerNS.SetBurger(storedBurgerActive);
-        }
     },
+
+    LinkResetBurger: function(link)
+    {
+        console.log(link);
+        link.onclick = () => { BurgerNS.SetBurger(false); return true; };
+    }
 };
 
 BurgerNS.ResetBurger();
+common.addOnloadHandler(
+    ".top-bar a[target=_self], .top-bar a:not([target]):not([href='javascript:void(0);'])",
+    BurgerNS.LinkResetBurger);
