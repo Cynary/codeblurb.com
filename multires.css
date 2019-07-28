@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*
  * This stylesheet contains the logic for dealing with higher vs lower resolution displays.
  * The main difference is related to the top bar - it's a sticky bar in high-res, and a burger in
