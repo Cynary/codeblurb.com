@@ -22,6 +22,11 @@
         max-width: 1200px;
     }
 
+    #burger-button
+    {
+        display: none;
+    }
+
     .top-bar
     {
         width: 100%;
@@ -118,6 +123,18 @@
         align-items: center;
     }
 
+
+    #burger-button
+    {
+        z-index: -9999;
+        opacity: 0;
+        position: fixed;
+        top: 0px;
+
+        width: 4em;
+        height: var(--top-bar-height);
+    }
+
     label[for="burger-button"]
     {
         display: block;
@@ -125,10 +142,8 @@
         position: fixed;
         top: 0px;
 
-        padding-top: 7px;
-        padding-bottom: 7px;
         width: 4em;
-        height: calc(var(--top-bar-height) - 14px);
+        height: var(--top-bar-height);
 
         z-index: 1;
     }
@@ -244,9 +259,4 @@
 .top-bar .content .js-bar
 {
     visibility: var(--js-visible);
-}
-
-#burger-button
-{
-    display: none;
 }
