@@ -51,8 +51,8 @@
 
     .top-bar .content .bar
     {
-        width: 2px;
-        background-color: var(--text-color);
+        width: 1px;
+        background-color: rgb(100, 100, 100); /*var(--text-color);*/
     }
 
     header
@@ -115,7 +115,7 @@
 
     .top-bar .burger .top-dash
     {
-        transition: transform .2s ease;
+        transition: transform .2s ease-in-out;
         transform: translateY(calc(var(--burger-toggle) * 11px)) rotate(calc(var(--burger-toggle) * 45deg));
         width: 1.5em;
         height: 2px;
@@ -124,7 +124,7 @@
 
     .top-bar .burger .middle-dash
     {
-        transition: opacity .2s ease;
+        transition: opacity .2s ease-in-out;
         opacity: calc(1 - var(--burger-toggle));
         width: 1.5em;
         height: 2px;
@@ -133,7 +133,7 @@
 
     .top-bar .burger .bottom-dash
     {
-        transition: transform .2s ease;
+        transition: transform .2s ease-in-out;
         transform: translateY(calc(var(--burger-toggle) * -10px)) rotate(calc(var(--burger-toggle) * -45deg));
         width: 1.5em;
         height: 2px;
@@ -145,13 +145,14 @@
         position: var(--burger-js-content-position);
         left: 0;
         top: var(--top-bar-height);
-        transition: visibility .2s ease;
+        transition: visibility .2s ease-in-out;
         visibility: var(--burger-visible);
+        width: 100%;
     }
 
     .top-bar .content
     {
-        transition: left .2s ease;
+        transition: left .2s ease-in-out;
         position: relative;
         left: calc(var(--burger-js-toggle) * (var(--burger-toggle) - 1) * 100%);
         overflow-x: hidden;
@@ -166,7 +167,6 @@
 
         background-color: var(--back-color-transparent);
         height: var(--burger-js-content-height);
-        /* height: calc(100vh - var(--top-bar-height)); */
         overflow-y: auto;
     }
 
@@ -178,9 +178,9 @@
     .top-bar .content .bar
     {
         flex-shrink: 0;
-        height: 2px;
-        width: 100%;
-        background-color: var(--text-color);
+        height: 1px;
+        width: 90%;
+        background-color: rgb(100, 100, 100); /*var(--text-color);*/
     }
 
     header
