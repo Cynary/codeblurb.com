@@ -4,17 +4,17 @@
 {
     --text-color-light: black;
     --back-color-light: white;
-    --color-2-light: rgb(220, 220, 220);
+    --color-2-light: rgb(230, 230, 230);
     --color-3-light: rgb(55, 55, 55);
     --back-color-transparent-light: rgba(255, 255, 255, 0.98);
-    --color-transparent-2-light: rgba(220, 220, 220, 0.9);
+    --color-transparent-2-light: rgba(220, 220, 220, 0.98);
 
     --text-color-dark: white;
     --back-color-dark: rgb(50, 50, 50);
     --color-2-dark: rgb(100, 100, 100);
     --color-3-dark: rgb(200, 200, 200);
     --back-color-transparent-dark: rgba(50, 50, 50, .98);
-    --color-transparent-2-dark: rgba(25, 25, 25, 0.9);
+    --color-transparent-2-dark: rgba(25, 25, 25, 0.98);
 
     /* Make sure to reflect extra themed colors in theme.js and below. */
     --theme: dark;
@@ -32,7 +32,7 @@
      */
     --js-visible: hidden;
 
-    --burger-transition-time: .1s;
+    --burger-transition-time: .3s;
 }
 
 html
@@ -103,7 +103,7 @@ body
 footer
 {
     padding: 0;
-    margin: 10px 5px;
+    margin: 10px 20px;
     text-align: right;
     font-family: monospace;
     font-size: 12px;
@@ -115,4 +115,12 @@ footer
 #theme-symbol
 {
     text-align: center;
+}
+
+/*
+ * This is used to hide content that isn't relevant when javascript isn't enabled.
+ */
+.js-content
+{
+    visibility: var(--js-visible);
 }

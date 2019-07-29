@@ -66,7 +66,7 @@ var ThemeNS = {
             }
 
             themeStyle.setProperty(ThemeNS.themeNameProp, theme);
-            common.setLocalState("ThemeNS::theme", theme);
+            StorageNS.SetLocalState("ThemeNS", "theme", theme);
         }
         return true;
     },
@@ -79,15 +79,15 @@ var ThemeNS = {
 
     ResetTheme: function()
     {
-        var storedTheme = common.getLocalState("ThemeNS::theme");
+        var storedTheme = StorageNS.GetLocalState("ThemeNS", "theme");
         if(storedTheme != null)
         {
             ThemeNS.SetTheme(storedTheme);
         }
     },
-
-
 };
+
+StorageNS.AddOptionalNamespace("ThemeNS");
 
 common.addOnloadHandler(
     "#theme-symbol",

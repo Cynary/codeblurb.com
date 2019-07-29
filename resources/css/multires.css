@@ -6,20 +6,22 @@
  * low-res.
  */
 
+.html-like
+{
+    /* This is to avoid changing position of stuff when a scrollbar appears. */
+    margin-right: calc(100% - 100vw);
+    overflow-x: hidden;
+    width: 100vw;
+}
+
 @media (min-width: 751px)
 {
-    html
-    {
-        /* This is to avoid changing position of stuff when a scrollbar appears. */
-        margin-right: calc(100% - 100vw);
-        overflow-x: hidden;
-    }
-
-    body
+    .body-like
     {
         width: 90%;
         min-width: 750px;
         max-width: 1200px;
+        margin: auto;
     }
 
     #burger-button
@@ -52,6 +54,19 @@
         flex-flow: row nowrap;
         justify-content: space-evenly;
         align-items: stretch;
+    }
+
+    /*
+     * Because edge doesn't support CSS ...
+     *
+     * https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15947692/
+     */
+    @supports (-ms-flow-from: thingy)
+    {
+        .top-bar .content
+        {
+            justify-content: space-around;
+        }
     }
 
     .top-bar .content .bar
@@ -88,11 +103,21 @@
         font-weight: 500;
         line-height: 12px;
     }
+
+    .top-bar .top-left
+    {
+        display: none;
+    }
+
+    #burger-button
+    {
+        display: none;
+    }
 }
 
 @media (max-width: 750px)
 {
-    body
+    .body-like
     {
         width: 100%;
     }
@@ -109,6 +134,13 @@
         --burger-toggle: 0;
     }
 
+    .top-bar .top-left
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
     .top-bar .burger
     {
         width: 4em;
@@ -123,15 +155,16 @@
         align-items: center;
     }
 
-
     #burger-button
     {
         z-index: -9999;
         opacity: 0;
         position: fixed;
-        top: 0px;
-
-        width: 4em;
+        padding: 0 0;
+        margin: 0 0;
+        top: 0;
+        left: 0;
+        width: 80px;
         height: var(--top-bar-height);
     }
 
@@ -139,25 +172,49 @@
     {
         display: block;
         cursor: pointer;
-        position: fixed;
-        top: 0px;
-
         width: 4em;
         height: var(--top-bar-height);
-
         z-index: 1;
     }
 
-    #burger-button:checked ~ .top-bar
+    #burger-button:checked+.top-bar
     {
         --burger-visible: initial;
         --burger-toggle: 1;
     }
 
+    #burger-button:checked+.top-bar .burger .top-dash,
+    #burger-button:checked+.top-bar .burger .middle-dash,
+    #burger-button:checked+.top-bar .burger .bottom-dash
+    {
+        transition: transform calc(var(--burger-transition-time) / 2) ease-out,
+                    opacity calc(var(--burger-transition-time) / 2) ease-out;
+    }
+
+    .top-bar .burger .top-dash,
+    .top-bar .burger .middle-dash,
+    .top-bar .burger .bottom-dash
+    {
+        transition: transform calc(var(--burger-transition-time) / 2) ease-out calc(var(--burger-transition-time) / 2),
+                    opacity calc(var(--burger-transition-time) / 2) ease-out calc(var(--burger-transition-time) / 2);
+    }
+
+    #burger-button:checked+.top-bar .burger-closer .bar-x-0,
+    #burger-button:checked+.top-bar .burger-closer .bar-x-1
+    {
+        transition: transform calc(var(--burger-transition-time) / 2) ease-out calc(var(--burger-transition-time) / 2);
+    }
+
+    .top-bar .burger-closer .bar-x-0,
+    .top-bar .burger-closer .bar-x-1
+    {
+        transition: transform calc(var(--burger-transition-time) / 2) ease-out;
+    }
+
     .top-bar .burger .top-dash
     {
-        transition: transform var(--burger-transition-time) ease-out;
-        transform: translateY(calc(var(--burger-toggle) * 7px)) rotate(calc(var(--burger-toggle) * 30deg));
+        transform: translateY(calc(var(--burger-toggle) * 7px));
+        opacity: calc(1 - var(--burger-toggle));
         width: 1.5em;
         height: 2px;
         background-color: var(--text-color);
@@ -165,8 +222,14 @@
 
     .top-bar .burger .middle-dash
     {
-        transition: opacity var(--burger-transition-time) ease-out;
         opacity: calc(1 - var(--burger-toggle));
+
+        /*
+         * This is a bit weird, but needed to avoid scrolling to the top when the top bar is
+         * targeted.
+         */
+        transform: translateY(0);
+
         width: 1.5em;
         height: 2px;
         background-color: var(--text-color);
@@ -174,8 +237,56 @@
 
     .top-bar .burger .bottom-dash
     {
-        transition: transform var(--burger-transition-time) ease-out;
-        transform: translateY(calc(var(--burger-toggle) * -8px)) rotate(calc(var(--burger-toggle) * -30deg));
+        transform: translateY(calc(var(--burger-toggle) * -8px));
+        opacity: calc(1 - var(--burger-toggle));
+        width: 1.5em;
+        height: 2px;
+        background-color: var(--text-color);
+    }
+
+    .top-bar .burger-closer
+    {
+        width: 4em;
+        height: calc(var(--top-bar-height) - 14px);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        padding-top: 7px;
+        padding-bottom: 7px;
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    /*
+     * Because edge doesn't support CSS ...
+     *
+     * https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/15947692/
+     */
+    @supports (-ms-flow-from: thingy)
+    {
+        .top-bar .burger,
+        .top-bar .burger-closer
+        {
+            justify-content: space-around;
+        }
+    }
+
+    .top-bar .burger-closer .bar-x-0
+    {
+        transform: translateY(5px) rotate(calc(var(--burger-toggle) * 30deg));
+        width: 1.5em;
+        height: 2px;
+        background-color: var(--text-color);
+    }
+
+    .top-bar .burger-closer .bar-x-1
+    {
+        transform: translateY(-5px) rotate(calc(var(--burger-toggle) * -30deg));
         width: 1.5em;
         height: 2px;
         background-color: var(--text-color);
@@ -250,13 +361,4 @@
     {
         display: none;
     }
-}
-
-/*
- * This bar is used to separate out the javscript-controller actions, and should not show up when
- * javascript isn't running.
- */
-.top-bar .content .js-bar
-{
-    visibility: var(--js-visible);
 }

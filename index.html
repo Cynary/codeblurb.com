@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" class="html-like">
   <head>
     <meta charset="UTF-8"></meta>
     <meta name="viewport" content="width=device-width,initial-scale=1"></meta>
@@ -8,24 +8,51 @@
     <link rel="stylesheet" type="text/css" href="resources/css/multires.css"></link>
     <link rel="stylesheet" type="text/css" href="resources/css/urls.css"></link>
     <link rel="stylesheet" type="text/css" href="resources/css/blurb.css"></link>
+    <link rel="stylesheet" type="text/css" href="resources/css/cookie.css"></link>
 
     <script src="resources/js/common.js"></script>
+    <script src="resources/js/storage.js"></script>
     <script src="resources/js/burger.js"></script>
     <script src="resources/js/theme.js"></script>
 
     <title>CODEBLURB.COM - Blurbs</title>
   </head>
 
-  <body>
+  <body class="body-like">
+
+    <div class="cookie-banner-container html-like"><div class="body-like">
+      <div class="cookie-banner">
+        <p>
+          This website stores information locally on your computer in order to provide certain
+          services. That information is only stored if you provide explicit consent for doing so. This
+          banner is showing because you have not yet expressed your preferences on what information
+          you allow this website to store (it is possible this website has changed its information
+          storage preferences), or because it has been 12 months or more since you expressed those
+          preferences.
+        </p>
+
+        <span>
+          <a href="javascript:void(0);" onclick="StorageNS.Enable(event, enableAll=true)">I consent</a>
+          <a href="about.html#storage" onclick="StorageNS.Enable(event, enableAll=false)">Let me pick what I want to store</a>
+        </span>
+      </div>
+    </div></div>
 
     <!-- Need autocomplete off here in order to avoid browser memorizing last checked value, leaving the burger displayed on reload. -->
     <input type="checkbox" id="burger-button" autocomplete="off"></input>
-    <label for="burger-button"></label>
     <div class="top-bar">
-      <div class="burger">
+      <label for="burger-button" class="top-left"></label>
+
+      <div class="burger top-left">
         <span class="top-dash"></span>
         <span class="middle-dash"></span>
         <span class="bottom-dash"></span>
+      </div>
+
+      <!-- This link targets a non-existing element to remove the target from the top-bar, and avoid scrolling. -->
+      <div class="burger-closer top-left">
+        <span class="bar-x-0"></span>
+        <span class="bar-x-1"></span>
       </div>
 
       <!-- The content-container is only needed for the burger slide animation. -->
@@ -39,7 +66,7 @@
           <a class="linkedin" target="_blank" href="https://linkedin.com/in/Cynary/">LinkedIn</a>
           <span class="bar"></span>
           <a href="javascript:void(0);" id="theme-symbol"></a>
-          <span class="bar js-bar"></span>
+          <span class="bar js-content"></span>
         </div>
       </div>
     </div>
