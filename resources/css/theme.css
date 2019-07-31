@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+:root
+{
+    /* Dark theme. */
+
+    --color-0-dark: #FFFFFF;
+    --color-1-dark: #202020;
+    --color-2-dark: #2C2C2C;
+    --color-3-dark: #01A299;
+    --color-4-dark: #007670;
+    --color-5-dark: #273636;
+    --color-6-dark: #585858;
+
+    /* Light theme. */
+
+    --color-0-light: #0A0A0A;
+    --color-1-light: #FFFFFF;
+    --color-2-light: #F5F5F5;
+    --color-3-light: #01A299;
+    --color-4-light: #007670;
+    --color-5-light: #273636;
+    --color-6-light: #585858;
+
+    /* Default theme: dark.  */
+
+    --theme: dark;
+
+    --color-0: var(--color-0-dark);
+    --color-1: var(--color-1-dark);
+    --color-2: var(--color-2-dark);
+    --color-3: var(--color-3-dark);
+    --color-4: var(--color-4-dark);
+    --color-5: var(--color-5-dark);
+    --color-6: var(--color-6-dark);
+
+    /* Semantic colors. */
+
+    /*
+     * Regular text, text in code block, text in popup blocks, hovered links, and primary
+     * buttons.
+     */
+    --text-color: var(--color-0);
+
+    /* Color for links that are hovered over. */
+    --link-hover-color: var(--color-3);
+
+    /* Main background color. */
+    --main-bg-color: var(--color-1);
+
+    /* Background color of blocks over the background - popups/code blocks. */
+    --block-bg-color: var(--color-2);
+
+    /* Border color for popups / buttons. */
+    --border-color: var(--color-3);
+
+    /*
+     * Background color for primary button. Secondary buttons don't have a background color, just
+     * transparent.
+     */
+    --primary-button-bg-color: var(--color-3);
+
+    /* Background color for primary button when hovered. */
+    --primary-button-hover-bg-color: var(--color-4);
+
+    /* Color for text in secondary button. */
+    --secondary-button-text-color: var(--color-3);
+
+    /* Color for border in secondary button. */
+    --secondary-button-border-color: var(--color-3);
+
+    /* Background color for secondary button when hovered over. */
+    --secondary-button-hover-bg-color: var(--color-5);
+
+    /* Color for vertical / horizontal bars */
+    --separator-color: var(--color-6);
+
+    --color-linkedin: #4875B4;
+    --color-github: #767676;
+}
