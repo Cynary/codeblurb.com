@@ -2,36 +2,12 @@
 
 :root
 {
-    --text-color-light: black;
-    --back-color-light: white;
-    --color-2-light: rgb(230, 230, 230);
-    --color-3-light: rgb(55, 55, 55);
-    --back-color-transparent-light: rgba(255, 255, 255, 0.98);
-    --color-transparent-2-light: rgba(220, 220, 220, 0.98);
-
-    --text-color-dark: white;
-    --back-color-dark: rgb(50, 50, 50);
-    --color-2-dark: rgb(100, 100, 100);
-    --color-3-dark: rgb(200, 200, 200);
-    --back-color-transparent-dark: rgba(50, 50, 50, .98);
-    --color-transparent-2-dark: rgba(25, 25, 25, 0.98);
-
-    /* Make sure to reflect extra themed colors in theme.js and below. */
-    --theme: dark;
-    --text-color: var(--text-color-dark);
-    --back-color: var(--back-color-dark);
-    --back-color-transparent: var(--back-color-transparent-dark);
-    --color-2: var(--color-2-dark);
-    --color-3: var(--color-3-dark);
-    --color-transparent-2: var(--color-transparent-2-dark);
-
-    --top-bar-height: 41px;
+    --top-bar-height: 36px;
 
     /*
      * This is used to hide elements that should only show up if JS is enabled.
      */
     --js-visible: hidden;
-
     --burger-transition-time: .3s;
 }
 
@@ -50,10 +26,14 @@ html
      */
 }
 
-/* html::-webkit-scrollbar */
-/* { */
-/*     width: 10px; */
-/* } */
+.html-like
+{
+    /* This is to avoid changing position of stuff when a scrollbar appears. */
+    margin-right: calc(100% - 100vw);
+    overflow-x: hidden;
+    width: 100vw;
+}
+
 body::-webkit-scrollbar {
     width: 0.2em;
 }
@@ -82,7 +62,7 @@ body::-webkit-scrollbar-thumb {
 
 body
 {
-    background-color: var(--back-color);
+    background-color: var(--main-bg-color);
     margin: 0 auto;
     color: var(--text-color);
     font-size: 20px;
@@ -103,7 +83,7 @@ body
 footer
 {
     padding: 0;
-    margin: 10px 20px;
+    margin: 60px 20px 10px 20px;
     text-align: right;
     font-family: monospace;
     font-size: 12px;

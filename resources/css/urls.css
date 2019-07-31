@@ -2,44 +2,82 @@
 
 /* This stylesheet includes all the styling for HTML anchors. */
 
-a.linkedin:link,
-a.linkedin:visited
-{
-    color: #4875B4;
-}
-
-a.github:link,
-a.github:visited
-{
-    color: #767676;
-}
-
-a.current:link,
-a.current:visited
-{
-    color: #fc6d24;
-}
-
-a:link,
-a:visited
+a
 {
     color: var(--text-color);
+    text-decoration: none;
+    transition: color .1s ease;
+}
+
+p > a,
+code > a
+{
+    text-decoration: underline;
+}
+
+a.linkedin
+{
+    color: var(--color-linkedin);
+}
+
+a.github
+{
+    color: var(--color-github);
+}
+
+a.current
+{
+    color: var(--link-hover-color);
+    font-weight: bold;
+}
+
+a.fancy-underline:link,
+a.fancy-underline:visited
+{
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid;
 }
 
 a:hover,
 a:active,
-a.current:hover,
-a.current:active,
 a.linkedin:hover,
 a.linkedin:active,
 a.github:hover,
 a.github:active
 {
-    color: #a1c659;
+    color: var(--link-hover-color);
 }
 
-a
+
+a.button.primary:hover,
+a.button.primary:active
 {
-    text-decoration: none;
-    transition: color .1s ease;
+    background-color: var(--primary-button-hover-bg-color);
+    border-color: var(--primary-button-hover-bg-color);
+}
+
+a.button
+{
+    display: inline-block;
+    transition: border-radius .5s, background-color .5s;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    margin: 10px 0px;
+    border: 1px solid var(--secondary-button-border-color);
+    color: var(--secondary-button-text-color);
+}
+
+a.button.primary
+{
+    color: var(--text-color);
+    background-color: var(--primary-button-bg-color);
+    border-color: var(--border-color);
+}
+
+a.button:hover,
+a.button:active
+{
+    border-radius: .5rem;
+    background-color: var(--secondary-button-hover-bg-color);
 }
